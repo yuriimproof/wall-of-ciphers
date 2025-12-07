@@ -55,8 +55,8 @@ export default function MessagePage({ params }: { params: { id: string } }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-4">
-        <div className="loading text-accent-cyan text-xl">
+      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-6 md:p-8">
+        <div className="loading text-accent-cyan text-xl md:text-2xl">
           Загрузка сообщения...
         </div>
       </div>
@@ -65,8 +65,8 @@ export default function MessagePage({ params }: { params: { id: string } }) {
 
   if (!message) {
     return (
-      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-4">
-        <div className="crypto-card p-8 max-w-md text-center">
+      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-6 md:p-8">
+        <div className="crypto-card p-8 md:p-10 max-w-lg text-center">
           <h2 className="text-2xl font-bold mb-4">Сообщение не найдено</h2>
           <p className="text-muted-foreground mb-6">
             Возможно, оно было удалено или ссылка неверна
@@ -82,24 +82,24 @@ export default function MessagePage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="min-h-screen gradient-bg flex flex-col p-4">
-      <div className="max-w-2xl w-full mx-auto py-8">
+    <div className="min-h-screen gradient-bg flex flex-col items-center justify-start p-6 md:p-8">
+      <div className="max-w-3xl w-full mx-auto py-8 md:py-12">
         {/* Header */}
-        <div className="mb-8">
-          <Link href="/wall" className="inline-flex items-center gap-2 text-accent-cyan hover:text-accent-blue transition-colors mb-4">
+        <div className="mb-10 md:mb-12">
+          <Link href="/wall" className="inline-flex items-center gap-2 text-accent-cyan hover:text-accent-blue transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" />
             К стене шифров
           </Link>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-bold mb-2">Зашифрованное послание</h1>
-              <p className="text-muted-foreground">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 md:mb-2">Зашифрованное послание</h1>
+              <p className="text-lg md:text-xl text-muted-foreground">
                 Попытайся расшифровать это сообщение
               </p>
             </div>
             <button
               onClick={shareMessage}
-              className="btn-secondary flex items-center gap-2"
+              className="btn-secondary flex items-center gap-2 self-start md:self-auto"
             >
               <Share2 className="w-4 h-4" />
               {copied ? 'Скопировано' : 'Поделиться'}
@@ -108,7 +108,7 @@ export default function MessagePage({ params }: { params: { id: string } }) {
         </div>
 
         {/* Message Card */}
-        <div className="crypto-card p-8 mb-6">
+        <div className="crypto-card p-8 md:p-10 mb-6">
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className={`epoch-badge epoch-${message.epoch} mb-2`}>
@@ -212,7 +212,7 @@ export default function MessagePage({ params }: { params: { id: string } }) {
 
         {/* Guess Form */}
         {!result?.correct && (
-          <form onSubmit={handleSubmit} className="crypto-card p-8">
+          <form onSubmit={handleSubmit} className="crypto-card p-8 md:p-10">
             <div className="space-y-4">
               <div>
                 <label htmlFor="guess" className="block text-sm font-medium mb-2">

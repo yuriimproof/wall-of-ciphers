@@ -25,8 +25,8 @@ export default function WallPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-4">
-        <div className="loading text-accent-cyan text-xl">
+      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-6 md:p-8">
+        <div className="loading text-accent-cyan text-xl md:text-2xl">
           Загрузка стены шифров...
         </div>
       </div>
@@ -34,17 +34,17 @@ export default function WallPage() {
   }
 
   return (
-    <div className="min-h-screen gradient-bg p-4">
-      <div className="max-w-6xl w-full mx-auto py-8">
+    <div className="min-h-screen gradient-bg flex flex-col items-center justify-start p-6 md:p-8">
+      <div className="max-w-7xl w-full mx-auto py-8 md:py-12">
         {/* Header */}
-        <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-accent-cyan hover:text-accent-blue transition-colors mb-4">
+        <div className="mb-12 md:mb-16">
+          <Link href="/" className="inline-flex items-center gap-2 text-accent-cyan hover:text-accent-blue transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" />
             Назад
           </Link>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2">Стена шифров</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">Стена шифров</h1>
+            <p className="text-lg md:text-xl text-muted-foreground">
               {messages.length > 0
                 ? `${messages.length} зашифрованных посланий ждут расшифровки`
                 : 'Пока нет зашифрованных посланий'}
@@ -54,7 +54,7 @@ export default function WallPage() {
 
         {/* No Messages State */}
         {messages.length === 0 && (
-          <div className="crypto-card p-12 text-center max-w-md mx-auto">
+          <div className="crypto-card p-12 md:p-16 text-center max-w-lg mx-auto">
             <Lock className="w-16 h-16 text-muted mx-auto mb-4 opacity-50" />
             <h2 className="text-2xl font-bold mb-4">Стена пуста</h2>
             <p className="text-muted-foreground mb-6">
@@ -70,7 +70,7 @@ export default function WallPage() {
 
         {/* Messages Grid */}
         {messages.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {messages.map((message, index) => (
               <motion.div
                 key={message.id}
@@ -79,7 +79,7 @@ export default function WallPage() {
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <Link href={`/message/${message.id}`}>
-                  <div className="crypto-card p-6 cursor-pointer h-full flex flex-col group">
+                  <div className="crypto-card p-6 md:p-8 cursor-pointer h-full flex flex-col group hover:scale-[1.02] transition-transform">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className={`epoch-badge epoch-${message.epoch}`}>

@@ -53,13 +53,13 @@ export default function EncryptPage() {
 
   if (result) {
     return (
-      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen gradient-bg flex flex-col items-center justify-center p-6 md:p-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-2xl w-full"
+          className="max-w-3xl w-full"
         >
-          <div className="crypto-card p-8">
+          <div className="crypto-card p-8 md:p-10">
             <div className="text-center mb-6">
               <div className="w-16 h-16 rounded-full bg-accent-green/20 flex items-center justify-center mx-auto mb-4 glow-green">
                 <Check className="w-8 h-8 text-accent-green" />
@@ -121,23 +121,23 @@ export default function EncryptPage() {
   }
 
   return (
-    <div className="min-h-screen gradient-bg flex flex-col p-4">
-      <div className="max-w-2xl w-full mx-auto py-8">
+    <div className="min-h-screen gradient-bg flex flex-col items-center justify-start p-6 md:p-8">
+      <div className="max-w-3xl w-full mx-auto py-8 md:py-12">
         {/* Header */}
-        <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-accent-cyan hover:text-accent-blue transition-colors mb-4">
+        <div className="mb-10 md:mb-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-accent-cyan hover:text-accent-blue transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" />
             Назад
           </Link>
-          <h1 className="text-4xl font-bold mb-2">Создать зашифрованное послание</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Создать зашифрованное послание</h1>
+          <p className="text-lg md:text-xl text-muted-foreground">
             Выбери эпоху и создай свое секретное сообщение
           </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="crypto-card p-8">
-          <div className="space-y-6">
+        <form onSubmit={handleSubmit} className="crypto-card p-8 md:p-10">
+          <div className="space-y-8">
             {/* Author Alias */}
             <div>
               <label htmlFor="alias" className="block text-sm font-medium mb-2">
