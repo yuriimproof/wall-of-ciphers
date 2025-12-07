@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔐 Стена шифров (Crypto Wall)
 
-## Getting Started
+Музейный веб-квест по криптографии. Создавай зашифрованные послания, разгадывай чужие секреты и погружайся в историю шифров и кодов.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16.0-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-green)
 
+## ✨ Особенности
+
+- 🎨 **Темная крипто-тема** с неоновыми акцентами
+- 🔒 **3 типа шифров**: Цезарь, Подстановочный, Digital Demo
+- 🏛️ **4 эпохи криптографии**: Протокриптография, Индустриальная, Домашняя, Цифровая
+- ⚡ **Плавные анимации** с Framer Motion
+- 📱 **Полностью адаптивный** дизайн
+- 🚀 **Next.js App Router** с Server Actions
+- 💾 **Supabase** для хранения сообщений
+
+## 🎮 Режимы работы
+
+### 1. Создать послание
+Зашифруй свое секретное сообщение, выбрав эпоху криптографии, и оставь его на стене для других.
+
+### 2. Взломать послание
+Попытайся расшифровать случайное сообщение со стены и узнай оригинальный текст.
+
+### 3. Стена шифров
+Просмотри все зашифрованные послания и выбери любое для взлома.
+
+## 🚀 Быстрый старт
+
+### Предварительные требования
+
+- Node.js 18.0 или новее
+- Аккаунт Supabase (бесплатный)
+
+### Установка
+
+1. Клонируйте репозиторий:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/crypto-wall.git
+cd crypto-wall
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Установите зависимости:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Настройте Supabase:
+   - Создайте проект на [supabase.com](https://supabase.com)
+   - Выполните SQL из файла `supabase-schema.sql` в SQL Editor
+   - Скопируйте Project URL и anon key
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Создайте `.env.local`:
+```bash
+cp .env.local.example .env.local
+```
 
-## Learn More
+5. Заполните переменные в `.env.local`:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Запустите проект:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+7. Откройте [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Подробная инструкция по настройке: [SETUP.md](./SETUP.md)
 
-## Deploy on Vercel
+## 🏗️ Технологический стек
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Frontend**: Next.js 16, React 19, TypeScript
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion
+- **Backend**: Next.js Server Actions
+- **Database**: Supabase (PostgreSQL)
+- **Deployment**: Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Структура проекта
+
+```
+crypto-wall/
+├── app/
+│   ├── page.tsx              # Главная страница
+│   ├── encrypt/              # Создание послания
+│   ├── decrypt/              # Расшифровка случайного
+│   ├── wall/                 # Стена шифров
+│   └── message/[id]/         # Конкретное сообщение
+├── lib/
+│   ├── actions.ts            # Server Actions
+│   ├── supabase.ts           # Supabase клиент
+│   ├── utils.ts              # Утилиты
+│   └── ciphers/              # Алгоритмы шифрования
+│       ├── caesar.ts
+│       ├── substitution.ts
+│       ├── digital.ts
+│       └── index.ts
+├── ai_docs/                  # Документация проекта
+│   ├── gtm-manifest.md
+│   ├── prd.md
+│   └── tech-stack.md
+└── supabase-schema.sql       # SQL схема
+```
+
+## 🎨 Типы шифров
+
+### Шифр Цезаря (Протокриптография)
+Каждая буква сдвигается на фиксированное число позиций в алфавите.
+- **Пример**: А → Г при сдвиге 3
+- **Сложность**: 1-3 (зависит от длины)
+
+### Подстановочный шифр (Индустриальная/Домашняя)
+Каждая буква заменяется на другую букву по определенному правилу.
+- **Сложность**: 2-3
+
+### Цифровое кодирование (Цифровая эра)
+Простое кодирование Base64 для демонстрации современных методов.
+- **Примечание**: Это НЕ шифрование, а кодирование
+- **Сложность**: 1
+
+## 📊 База данных
+
+Схема таблицы `messages`:
+
+```sql
+CREATE TABLE messages (
+  id UUID PRIMARY KEY,
+  created_at TIMESTAMPTZ,
+  author_alias TEXT,
+  epoch TEXT,              -- proto | industrial | home | digital
+  cipher_type TEXT,        -- caesar | substitution | digital_demo
+  ciphertext TEXT,
+  plaintext TEXT,
+  difficulty INTEGER       -- 1-3
+);
+```
+
+## 🚀 Деплой
+
+### Vercel (рекомендуется)
+
+1. Загрузите проект на GitHub
+2. Импортируйте в Vercel
+3. Добавьте переменные окружения
+4. Деплой!
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone)
+
+## 📝 Лицензия
+
+MIT
+
+## 🙏 Благодарности
+
+Проект создан для **Музея криптографии** в рамках хакатона.
+
+---
+
+**Made with ❤️ using Claude Code**
