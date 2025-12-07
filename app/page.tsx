@@ -27,7 +27,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
             Музейный веб-квест по криптографии. Создавай зашифрованные послания,
             разгадывай чужие секреты и погружайся в историю шифров и кодов.
@@ -45,12 +45,12 @@ export default function Home() {
             <Link href="/encrypt">
               <div className="crypto-card p-8 text-center cursor-pointer h-full flex flex-col justify-between group">
                 <div>
-                  <div className="w-16 h-16 rounded-full bg-accent-green/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-green/20 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-accent-green/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-green/20 transition-colors">
                     <Lock className="w-8 h-8 text-accent-green" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-3">Создать послание</h2>
-                  <p className="text-muted-foreground">
-                    Зашифруй свое секретное сообщение и оставь его другим на стене
+                  <h2 className="text-2xl font-bold mb-4">Создать послание</h2>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    Зашифруй свое секретное сообщение и оставь его на стене для других
                   </p>
                 </div>
               </div>
@@ -66,12 +66,12 @@ export default function Home() {
             <Link href="/decrypt">
               <div className="crypto-card p-8 text-center cursor-pointer h-full flex flex-col justify-between group">
                 <div>
-                  <div className="w-16 h-16 rounded-full bg-accent-cyan/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-cyan/20 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-accent-cyan/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-cyan/20 transition-colors">
                     <Unlock className="w-8 h-8 text-accent-cyan" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-3">Взломать послание</h2>
-                  <p className="text-muted-foreground">
-                    Попытайся расшифровать случайное сообщение со стены
+                  <h2 className="text-2xl font-bold mb-4">Взломать послание</h2>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    Попытайся расшифровать случайное зашифрованное сообщение со стены
                   </p>
                 </div>
               </div>
@@ -87,12 +87,12 @@ export default function Home() {
             <Link href="/wall">
               <div className="crypto-card p-8 text-center cursor-pointer h-full flex flex-col justify-between group">
                 <div>
-                  <div className="w-16 h-16 rounded-full bg-accent-blue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-blue/20 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-accent-blue/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-blue/20 transition-colors">
                     <Grid3x3 className="w-8 h-8 text-accent-blue" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-3">Стена шифров</h2>
-                  <p className="text-muted-foreground">
-                    Просмотри все зашифрованные послания и выбери любое для взлома
+                  <h2 className="text-2xl font-bold mb-4">Стена шифров</h2>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    Просмотри все зашифрованные послания на стене и выбери для взлома
                   </p>
                 </div>
               </div>
